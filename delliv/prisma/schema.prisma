@@ -1,0 +1,45 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Pedido {
+  id              Int          @id @default(autoincrement())
+  nomeCliente     String?
+  enderecoEntrega String
+  item            String
+  status          StatusPedido
+  criadoEm        DateTime     @default(now())
+  atualizadoEm    DateTime     @updatedAt
+  usuarioId       Int?
+  usuario         Usuario?     @relation(fields: [usuarioId], references: [id])
+}
+
+model Usuario {
+  id           Int          @id @default(autoincrement())
+  nome         String
+  email        String       @unique
+  senha        String
+  cargo        CargoUsuario
+  pedidos      Pedido[]
+  criadoEm     DateTime     @default(now())
+  atualizadoEm DateTime     @updatedAt
+}
+
+enum StatusPedido {
+  RECEBIDO
+  PROCESSANDO
+  ENVIADO
+  ENTREGUE
+  CANCELADO
+}
+
+enum CargoUsuario {
+  VENDEDOR
+  USUARIO
+  ADMIN
+}

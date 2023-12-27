@@ -1,0 +1,35 @@
+:root {
+  --toastify-color-progress-success: linear-gradient(
+    to right,
+    #2563eb,
+    #e0e0e0
+  );
+  --toastify-color-progress-error: linear-gradient(
+    to right,
+    #e74c3c,
+    #e74d3c96,
+    #e0e0e0
+  );
+  --toastify-icon-color-success: #2563eb;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
