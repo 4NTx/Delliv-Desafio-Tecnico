@@ -15,7 +15,7 @@ const PaginaReceberDados = () => {
     const fetchDados = async () => {
       try {
         const resposta = await axios.get(
-          "http://localhost:3000/pedidos/buscarPedidoPorID/1",
+          "${process.env.API_URL}/pedidos/buscarPedidoPorID/1",
           {
             headers: {
               Authorization: `Bearer ${jwtToken}`,

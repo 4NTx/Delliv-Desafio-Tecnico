@@ -30,7 +30,7 @@ const FormRegistro = () => {
     }
 
     try {
-      await axios.post("http://localhost:3000/usuarios/registro", valores);
+      await axios.post("${process.env.API_URL}/usuarios/registro", valores);
       toast.success("Usuário registrado com sucesso!");
     } catch (error) {
       if (axios.isAxiosError(error)) {

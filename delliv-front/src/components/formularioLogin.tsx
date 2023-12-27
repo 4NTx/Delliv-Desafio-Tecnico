@@ -21,7 +21,7 @@ const FormLogin = () => {
 
     try {
       const resposta = await axios.post(
-        "http://localhost:3000/usuarios/login",
+        "${process.env.API_URL}/usuarios/login",
         valores
       );
       localStorage.setItem("jwt", resposta.data.access_token);
